@@ -13,8 +13,15 @@ class Main extends React.Component {
           <small class="text-muted">Q</small>
         </h1>
         <form>
-          <button className="btn btn-dark btn-lg btn-block">Create Room</button>
-          <button className="btn btn-dark btn-lg btn-block">Join Room</button>
+          <div class="form-group">
+            <label for="personName">Your Name</label>
+            <input type="personName" class="form-control" id="personName" />
+          </div>
+          <div class="form-group">
+            <label for="roomName">Room Name</label>
+            <input type="roomName" class="form-control" id="roomName" />
+          </div>
+          <button className="btn btn-dark btn-lg btn-block">Create or Join Room</button>
         </form>
       </div>
     )

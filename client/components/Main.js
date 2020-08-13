@@ -7,8 +7,11 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div className="text-center">
-        MAIN
+      <div className="container">
+        <form>
+          <button className="btn btn-dark btn-lg btn-block">Create Room</button>
+          <button className="btn btn-dark btn-lg btn-block">Join Room</button>
+        </form>
       </div>
     )
   }

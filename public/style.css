@@ -1,5 +1,6 @@
 body {
   background-color: #CFCCD6;
+  font-family: 'EB Garamond', serif;
 }
 
 form {
@@ -10,4 +11,5 @@ form {
   margin-top: 10%;
   text-align: center;
   text-shadow: 10px 2px 2px #B7B5E4;
+  font-family: 'Lemonada', cursive;
 }

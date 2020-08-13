@@ -3,5 +3,11 @@ body {
 }
 
 form {
-  padding: 30%;
+  padding: 10%;
+}
+
+.display-1 {
+  margin-top: 10%;
+  text-align: center;
+  text-shadow: 10px 2px 2px #B7B5E4;
 }

@@ -10,16 +10,16 @@ class Main extends React.Component {
       <div className="container">
         <h1 className="display-1">
           Karao
-          <small class="text-muted">Q</small>
+          <small className="text-muted">Q</small>
         </h1>
         <form>
-          <div class="form-group">
-            <label for="personName">Your Name</label>
-            <input type="personName" class="form-control" id="personName" />
+          <div className="form-group">
+            <label htmlFor="personName">Your Name</label>
+            <input type="personName" className="form-control" id="personName" />
           </div>
-          <div class="form-group">
-            <label for="roomName">Room Name</label>
-            <input type="roomName" class="form-control" id="roomName" />
+          <div className="form-group">
+            <label htmlFor="roomName">Room Name</label>
+            <input type="roomName" className="form-control" id="roomName" />
           </div>
           <button className="btn btn-dark btn-lg btn-block">Create or Join Room</button>
         </form>

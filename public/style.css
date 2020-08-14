@@ -3,6 +3,7 @@ body {
   font-family: 'EB Garamond', serif;
 }
 
+/* start form styles */
 form {
   padding-bottom: 35%;
   padding-left: 40%;
@@ -15,3 +16,30 @@ form {
   text-shadow: 10px 2px 2px #B7B5E4;
   font-family: 'Lemonada', cursive;
 }
+/* start form styles */
+
+/* split screen in half vertically */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+/* split screen in half vertically */
+
+/* split screen in half horizontally */
+.splitHorizontal {
+  height: 50%;
+}
+/* split screen in half horizontally */

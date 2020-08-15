@@ -14,11 +14,11 @@ class Main extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1 className="display-1 startForm">
+        <h1 className="display-4">
           Karao
           <small className="text-muted">Q</small>
         </h1>
-        <button onClick={this.logout}>Logout</button>
+        <button onClick={this.logout} className="btn btn-danger">Logout</button>
       </div>
     )
   }

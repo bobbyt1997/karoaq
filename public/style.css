@@ -3,6 +3,12 @@ body {
   font-family: 'EB Garamond', serif;
 }
 
+/* navbar styles */
+.navbar {
+  background-color: #2C5784;
+}
+/* navbar styles */
+
 /* start form styles */
 .display-1 {
   text-shadow: 10px 2px 2px #B7B5E4;

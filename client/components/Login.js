@@ -11,6 +11,7 @@ class Login extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.login = this.login.bind(this)
+    this.signup = this.signup.bind(this)
   }
 
   login(e) {
@@ -18,6 +19,16 @@ class Login extends Component {
     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(u => { })
       .catch(err => {
+        console.log(err)
+      })
+  }
+
+  signup(e) {
+    e.preventDefault()
+    fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then(u => { })
+      .catch(err => {
+        alert(err.message)
         console.log(err)
       })
   }
@@ -47,7 +58,7 @@ class Login extends Component {
                 className="form-control" id="password" placeholder="Password" />
             </div>
             <button type="submit" onClick={this.login} className="btn btn-primary">Login</button>
-            <button onClick={this.signup} className="btn btn-success">Signup</button>
+            <button type="submit" onClick={this.signup} className="btn btn-success">Signup</button>
           </form>
         </div>
       </div>

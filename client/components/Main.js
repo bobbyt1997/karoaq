@@ -1,28 +1,24 @@
 import React from 'react'
+import fire from '../../config/fire.js'
 
 class Main extends React.Component {
   constructor() {
     super()
+    this.logout = this.logout.bind(this)
+  }
+
+  logout() {
+    fire.auth().signOut()
   }
 
   render() {
     return (
       <div className="container">
-        <h1 className="display-1">
+        <h1 className="display-1 startForm">
           Karao
-          <small class="text-muted">Q</small>
+          <small className="text-muted">Q</small>
         </h1>
-        <form>
-          <div class="form-group">
-            <label for="personName">Your Name</label>
-            <input type="personName" class="form-control" id="personName" />
-          </div>
-          <div class="form-group">
-            <label for="roomName">Room Name</label>
-            <input type="roomName" class="form-control" id="roomName" />
-          </div>
-          <button className="btn btn-dark btn-lg btn-block">Create or Join Room</button>
-        </form>
+        <button onClick={this.logout}>Logout</button>
       </div>
     )
   }

@@ -29,7 +29,7 @@ class Entry extends Component {
   render() {
     return (
       <div>
-        {this.state.user ? <Main /> : <Login />}
+        {this.state.user ? <Main user={this.state.user} /> : <Login />}
       </div>
     )
   }

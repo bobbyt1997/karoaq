@@ -3,6 +3,7 @@ import React from 'react'
 class Room extends React.Component {
   constructor() {
     super()
+    this.state = {}
   }
 
   render() {

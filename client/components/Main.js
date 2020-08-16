@@ -12,23 +12,18 @@ class Main extends React.Component {
       roomExists: false
     }
 
-    this.join = this.join.bind(this)
-    this.create = this.create.bind(this)
+    this.joinCreate = this.joinCreate.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
 
-  join(e) {
-    e.preventDefault()
-  }
-
-  create(e) {
+  joinCreate(e) {
     e.preventDefault()
 
-    // db.ref('rooms/' + this.state.roomName).set({
-    //   users: [this.props.user.email]
-    // });
+    db.ref('rooms/' + this.state.roomName).set({
+      users: [this.props.user.email]
+    });
 
-    history.push('/test')
+    history.push(`/${this.state.roomName}`)
   }
 
   handleChange(e) {
@@ -44,8 +39,7 @@ class Main extends React.Component {
             <label htmlFor="roomName">Room Name</label>
             <input type="text" onChange={this.handleChange} name="roomName" className="form-control" id="roomName" placeholder="Enter Room Name" />
           </div>
-          <button type="submit" onClick={this.create} className="btn btn-primary">Create Room</button>
-          <button type="submit" onClick={this.join} className="btn btn-primary">Join Room</button>
+          <button type="submit" onClick={this.create} className="btn btn-primary">Create/Join Room</button>
         </form>
       </div>
     )

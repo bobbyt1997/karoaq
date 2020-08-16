@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { Router } from 'react-router-dom'
 import App from './app'
 import history from './history.js'
+import 'regenerator-runtime/runtime'
 
 ReactDOM.render(
   <Router history={history}>

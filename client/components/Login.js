@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { fire } from '../../config/fire'
 import { connect } from 'react-redux'
-import { login } from '../store/auth'
+import { login, signup } from '../store/auth'
 
 class Login extends Component {
   constructor() {
@@ -23,12 +23,7 @@ class Login extends Component {
 
   signup(e) {
     e.preventDefault()
-    fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(u => { })
-      .catch(err => {
-        alert(err.message)
-        console.log(err)
-      })
+    this.props.signup(this.state.email, this.state.password)
   }
 
   handleChange(e) {
@@ -72,7 +67,8 @@ const mapState = (reduxState) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    login: (email, password) => dispatch(login(email, password))
+    login: (email, password) => dispatch(login(email, password)),
+    signup: (email, password) => dispatch(signup(email, password))
   }
 }
 

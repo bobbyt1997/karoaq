@@ -1,14 +1,10 @@
 import React from 'react'
-import { fire } from '../../config/fire.js'
+import { connect } from 'react-redux'
+import { logout } from '../store/auth'
 
-export default class Navbar extends React.Component {
+class Navbar extends React.Component {
   constructor() {
     super()
-    this.logout = this.logout.bind(this)
-  }
-
-  logout() {
-    fire.auth().signOut()
   }
 
   render() {
@@ -18,8 +14,16 @@ export default class Navbar extends React.Component {
           Karao
             <small className="text-muted">Q</small>
         </a>
-        <button onClick={this.logout} className="btn btn-danger my-2 my-sm-0">Logout</button>
+        <button onClick={this.props.logout} className="btn btn-danger my-2 my-sm-0">Logout</button>
       </nav>
     )
   }
 }
+
+const mapDispatch = (dispatch) => {
+  return {
+    logout: () => dispatch(logout())
+  }
+}
+
+export default connect(null, mapDispatch)(Navbar)

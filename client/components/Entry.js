@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Main from './Main.js'
 import Login from './Login.js'
-import fire from '../../config/fire'
+import { fire } from '../../config/fire'
 
 class Entry extends Component {
   constructor() {
@@ -29,7 +29,7 @@ class Entry extends Component {
   render() {
     return (
       <div>
-        {this.state.user ? <Main /> : <Login />}
+        {this.state.user ? <Main user={this.state.user} /> : <Login />}
       </div>
     )
   }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import Login from './components/Login.js'
 import Room from './components/Room.js'
 import Entry from './components/Entry.js'
@@ -18,4 +18,4 @@ const App = () => {
   )
 }
 
-export default App
+export default withRouter(App)

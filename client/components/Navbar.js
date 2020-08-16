@@ -1,5 +1,5 @@
 import React from 'react'
-import fire from '../../config/fire.js'
+import { fire } from '../../config/fire.js'
 
 export default class Navbar extends React.Component {
   constructor() {

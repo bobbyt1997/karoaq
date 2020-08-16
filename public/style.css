@@ -25,6 +25,15 @@ body {
 }
 /* start form styles */
 
+/* join/create room form styles */
+.join-createRoom {
+  text-align: center;
+  display: inline-block;
+  margin-left: 42%;
+  margin-top: 10%;
+}
+/* join/create room form styles */
+
 /* split screen in half vertically */
 .split {
   height: 100%;

@@ -18,11 +18,6 @@ class Login extends Component {
 
   login(e) {
     e.preventDefault()
-    // fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-    //   .then(u => { })
-    //   .catch(err => {
-    //     console.log(err)
-    //   })
     this.props.login(this.state.email, this.state.password)
   }
 

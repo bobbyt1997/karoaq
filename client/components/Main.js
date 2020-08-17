@@ -1,15 +1,14 @@
 import React from 'react'
 import Navbar from './Navbar.js'
-import { db } from '../../config/fire.js'
 import history from '../history.js'
-import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { joinCreate } from '../store/room'
 
 class Main extends React.Component {
   constructor() {
     super()
     this.state = {
       roomName: '',
-      roomExists: false
     }
 
     this.joinCreate = this.joinCreate.bind(this)
@@ -19,9 +18,10 @@ class Main extends React.Component {
   joinCreate(e) {
     e.preventDefault()
 
-    db.ref('rooms/' + this.state.roomName).set({
-      users: [this.props.user.email]
-    });
+    this.props.joinCreate(this.state.roomName, this.props.user.email)
+    // db.ref('rooms/' + this.state.roomName).set({
+    //   users: [this.props.user.email]
+    // });
 
     history.push(`/${this.state.roomName}`)
   }
@@ -39,11 +39,18 @@ class Main extends React.Component {
             <label htmlFor="roomName">Room Name</label>
             <input type="text" onChange={this.handleChange} name="roomName" className="form-control" id="roomName" placeholder="Enter Room Name" />
           </div>
-          <button type="submit" onClick={this.create} className="btn btn-primary">Create/Join Room</button>
+          <button type="submit" onClick={this.joinCreate} className="btn btn-primary">Create/Join Room</button>
         </form>
       </div>
     )
   }
 }
 
-export default Main
+const mapDispatch = (dispatch) => {
+  return {
+    getUser: () => dispatch(getUser()),
+    joinCreate: (roomName) => dispatch(joinCreate(roomName))
+  }
+}
+
+export default connect(null, mapDispatch)(Main)

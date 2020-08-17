@@ -1,33 +1,27 @@
 import React from 'react'
 import Navbar from './Navbar.js'
-import { db } from '../../config/fire.js'
 import history from '../history.js'
-import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getUser } from '../store/auth'
+import { joinCreate } from '../store/room'
 
 class Main extends React.Component {
   constructor() {
     super()
     this.state = {
       roomName: '',
-      roomExists: false
     }
 
     this.joinCreate = this.joinCreate.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
 
-  componentDidMount() {
-    this.props.getUser()
-  }
-
   joinCreate(e) {
     e.preventDefault()
 
-    db.ref('rooms/' + this.state.roomName).set({
-      users: [this.props.user.email]
-    });
+    this.props.joinCreate(this.state.roomName, this.props.user.email)
+    // db.ref('rooms/' + this.state.roomName).set({
+    //   users: [this.props.user.email]
+    // });
 
     history.push(`/${this.state.roomName}`)
   }
@@ -52,16 +46,11 @@ class Main extends React.Component {
   }
 }
 
-const mapState = (reduxStore) => {
-  return {
-    credentials: reduxStore.credentials
-  }
-}
-
 const mapDispatch = (dispatch) => {
   return {
-    getUser: () => dispatch(getUser())
+    getUser: () => dispatch(getUser()),
+    joinCreate: (roomName) => dispatch(joinCreate(roomName))
   }
 }
 
-export default connect(mapState, mapDispatch)(Main)
+export default connect(null, mapDispatch)(Main)

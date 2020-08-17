@@ -1,6 +1,5 @@
 import { fire, db } from '../../config/fire'
 import 'regenerator-runtime'
-import { async } from 'regenerator-runtime'
 
 /**
  * ACTION TYPES
@@ -94,9 +93,9 @@ export const logout = () => {
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
     case SET_LOGIN_SIGNUP:
-      return { ...state, credentials: action.user }
+      return { ...state, credentials: action.credentials }
     case PERFORM_LOGOUT:
-      return { ...state, credentials: action.user }
+      return { ...state, credentials: action.credentials }
     case GET_CURRENT_USER:
       return { ...state, user: action.user }
     default:

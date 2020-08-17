@@ -7,6 +7,7 @@ import { async } from 'regenerator-runtime'
  */
 const SET_LOGIN_SIGNUP = 'SET_LOGIN_SIGNUP'
 const PERFORM_LOGOUT = 'PERFORM_LOGOUT'
+const GET_CURRENT_USER = 'GET_CURRENT_USER'
 
 /**
  * INITIAL STATE
@@ -16,6 +17,13 @@ const initialState = {}
 /**
  * ACTION CREATORS
  */
+const getCurrentUser = (user) => {
+  return {
+    type: GET_CURRENT_USER,
+    user
+  }
+}
+
 const setLoginSignup = (email, password) => {
   return {
     type: SET_LOGIN_SIGNUP,
@@ -39,6 +47,17 @@ const performLogout = () => {
 /**
  * THUNK CREATORS
  */
+export const getUser = () => {
+  return async (dispatch) => {
+    try {
+      let user = await fire.auth().currentUser;
+      dispatch(getCurrentUser(user))
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
 export const login = (email, password) => {
   return async (dispatch) => {
     try {
@@ -75,9 +94,11 @@ export const logout = () => {
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
     case SET_LOGIN_SIGNUP:
-      return action.credentials
+      return { ...state, credentials: action.user }
     case PERFORM_LOGOUT:
-      return action.credentials
+      return { ...state, credentials: action.user }
+    case GET_CURRENT_USER:
+      return { ...state, user: action.user }
     default:
       return state
   }
